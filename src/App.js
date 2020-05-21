@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import {robots} from './datas/robotsData'
+import CardList from './components/CardList'
+
 
 function App() {
+
+  const [datas, setData]= useState(robots)
+  const styles = {
+    input:{fontSize:'22px'}
+  }
+
+  const handlechange = e => {
+    
+setData( robots.filter(robot =>  robot.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())) )
+
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Robot friends</h1>
+
+      <input onChange={handlechange} style={styles.input} type='search' placeholder='enter robot name' />
+        <CardList datas={datas} />
     </div>
   );
 }
