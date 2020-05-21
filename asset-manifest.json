@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/eteka03/robot-friends/static/css/main.211ff4cc.chunk.css",
+    "main.js": "/eteka03/robot-friends/static/js/main.a91b4d60.chunk.js",
+    "main.js.map": "/eteka03/robot-friends/static/js/main.a91b4d60.chunk.js.map",
+    "runtime-main.js": "/eteka03/robot-friends/static/js/runtime-main.b8498744.js",
+    "runtime-main.js.map": "/eteka03/robot-friends/static/js/runtime-main.b8498744.js.map",
+    "static/js/2.c854ce4a.chunk.js": "/eteka03/robot-friends/static/js/2.c854ce4a.chunk.js",
+    "static/js/2.c854ce4a.chunk.js.map": "/eteka03/robot-friends/static/js/2.c854ce4a.chunk.js.map",
+    "index.html": "/eteka03/robot-friends/index.html",
+    "precache-manifest.fb95679e2d606e7715f7709e947879ca.js": "/eteka03/robot-friends/precache-manifest.fb95679e2d606e7715f7709e947879ca.js",
+    "service-worker.js": "/eteka03/robot-friends/service-worker.js",
+    "static/css/main.211ff4cc.chunk.css.map": "/eteka03/robot-friends/static/css/main.211ff4cc.chunk.css.map",
+    "static/js/2.c854ce4a.chunk.js.LICENSE.txt": "/eteka03/robot-friends/static/js/2.c854ce4a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8498744.js",
+    "static/js/2.c854ce4a.chunk.js",
+    "static/css/main.211ff4cc.chunk.css",
+    "static/js/main.a91b4d60.chunk.js"
+  ]
+}
