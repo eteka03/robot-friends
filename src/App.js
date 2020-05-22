@@ -1,41 +1,50 @@
 import React,{useState,useEffect} from 'react';
 import './App.css';
-import {robots} from './datas/robotsData'
 import CardList from './components/CardList'
 
+import {setSearchField,requestRobots} from './action'
+import {connect} from 'react-redux'
 
-function App() {
+const mapStateToProps = state => {
+ return {
+          searchField: state.searchRobots.searchField,
 
-  const [datas, setData]= useState([])
+          robots:state.requestRobots.robots,
+          isPending:state.requestRobots.isPending,
+          error: state.requestRobots.error
+        }
+}
 
+const mapDispatchToProps =  dispatch => 
+( {
+   handlechange: event => dispatch(setSearchField(event.target.value)),
+  onRequestRobots: () => dispatch(requestRobots())
+})
+
+function App(props) {
+
+  const {searchField,handlechange,onRequestRobots,robots,isPending,error} = props
   
+ const  filteredRobots = robots.filter(robot => robot.name.toLowerCase().includes(searchField.toLowerCase()))
 
   useEffect(()=>{
 
-    fetch('https://jsonplaceholder.typicode.com/users')
-          .then(response =>  response.json())
-          .then(users=>  setData(users))
-          .catch(err => alert(err))
+   onRequestRobots()
     
   },[])
   const styles = {
     input:{fontSize:'1rem',padding:'1rem'}
   }
 
-  const handlechange = e => {
-    
-setData( robots.filter(robot =>  robot.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())) )
-
-
-  }
+ 
   return (
     <div className="App">
       <h1>Robot friends</h1>
 
       <input onChange={handlechange} style={styles.input} type='search' placeholder='enter robot name' />
-      { datas.length === 0 ?<h3>loading...</h3> : <CardList datas={datas} />}
+      { isPending ?<h3>loading...</h3>: <CardList datas={filteredRobots} /> }
     </div>
   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

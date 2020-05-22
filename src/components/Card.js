@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Card({email, name, image , styles}) {
+export default function Card({key,email, name, image , styles}) {
 
-    console.log(styles.card)
+    
     return (
-        <div  style={{...styles.card}}>
+        <div key={key} style={{...styles.card}}>
 
             <img style={styles.img} src={`https://robohash.org/${image}?200x200`} alt={image.alt} />
             
